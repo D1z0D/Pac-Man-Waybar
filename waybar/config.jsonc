@@ -1,0 +1,96 @@
+{
+    "layer": "top", // Layer of waybar
+    "position": "top", // Position of waybar
+    "height": 30, // Height of waybar
+    "spacing": 10, // Pixels between modules
+
+    "modules-left": [
+        "custom/menu",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "custom/gpu",
+        "memory",
+        "network",
+        "pulseaudio",
+        "hyprland/language",
+        "custom/clock"
+    ],
+
+    
+
+    "custom/menu": {
+        "format": " 󰮯 ",
+        "tooltip": false,
+    "on-click": "wofi --show drun"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+        "active": "●",
+        "default": "○" 
+      },
+      "persistent-workspaces": {
+        "*": 5
+      }
+    },
+
+    "clock": {
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "  CPU {usage}%",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    "custom/gpu": {
+        "exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
+        "format": " 󰢮 GPU {}%",
+        "return-type": "",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " 󰒋 RAM {}%",
+	    "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "    ({signalStrength}%)",
+        "format-ethernet": " 󰡁 Ethernet",
+        "format-disconnected": " 󱞐 ",
+        "tooltip": false
+    // "on-click": "" future
+    },
+
+    "pulseaudio": {
+        "format": " {icon} {volume}%",
+        "format-icons": ["", "", ""],
+        "tooltip": false,
+    "on-click": "pavucontrol"
+    },
+
+    "hyprland/language": {
+       "format": "  {}",
+       "format-en": "EN",
+       "format-ru": "RU"
+    },
+
+    "custom/clock": {
+        "exec": "date '+%d-%m-%Y'",
+        "format": " {} ",
+        "tooltip": false
+    }
+
+
+}
